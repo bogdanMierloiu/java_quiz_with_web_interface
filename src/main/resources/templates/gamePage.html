@@ -6,19 +6,21 @@
 </head>
 <body>
 
-<div class="container text-center" >
+<div>
     <form th:object="${gameRequest}" th:action="@{/game/play}" method="post">
         <input type="hidden" name="playerId" th:value="${player.id}">
-        <ul th:each="question: ${questionsList}">
-            <li th:text="${question.text}"></li>
+        <div th:each="question: ${questionsList}">
+            <span th:text="${question.text}"></span>
             <ul th:each="answer: ${question.answers}">
-                <div>
+                <li style="display: inline-block;">
                     <input type="checkbox" name="answersId" th:value="${answer.id}" th:field="*{answersId}"/>
-                    <li th:text="${answer.text}"></li>
-                </div>
+                    <label th:text="${answer.text}"></label>
+                </li>
             </ul>
-        </ul>
-        <button type="submit"> Submit</button>
+        </div>
+        <div>
+            <button type="submit"> Verify</button>
+        </div>
     </form>
 </div>
 

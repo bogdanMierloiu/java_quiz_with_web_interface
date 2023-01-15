@@ -40,17 +40,9 @@ public class GameService {
             answersFromUser.add(answer);
         }
         double score = 1.0;
-        for (Question question : questionList) {
-            List<Answer> answers = question.getAnswers();
-            Answer correctAnswer = null;
-            for (Answer answer : answers) {
-                if (answer.getIsCorrect()) {
-                    correctAnswer = answer;
-                }
-                if (answersFromUser.get(0).equals(correctAnswer)) {
-                    score += 0.5;
-                    answersFromUser.remove(0);
-                }
+        for (Answer answer : answersFromUser) {
+            if (answer.getIsCorrect()) {
+                score +=  0.5;
             }
         }
         game.setScore(score);
