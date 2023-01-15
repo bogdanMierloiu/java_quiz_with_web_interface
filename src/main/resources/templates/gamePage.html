@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div class="container text-center" >
+    <form th:object="${gameRequest}" th:action="@{/game/play}" method="post">
+        <input type="hidden" name="playerId" th:value="${player.id}">
+        <ul th:each="question: ${questionsList}">
+            <li th:text="${question.text}"></li>
+            <ul th:each="answer: ${question.answers}">
+                <div>
+                    <input type="checkbox" name="answersId" th:value="${answer.id}" th:field="*{answersId}"/>
+                    <li th:text="${answer.text}"></li>
+                </div>
+            </ul>
+        </ul>
+        <button type="submit"> Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

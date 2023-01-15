@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div style="text-align: center">
+    <h2> Welcome </h2>
+</div>
+<div style="text-align: center">
+    <form th:action="@{/add-user}" method="post">
+        <div>
+            <span> username:</span>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <span> email:</span>
+
+        </div>
+        <input type="text" name="email" required>
+        <button type="submit"> START</button>
+    </form>
+</div>
+
+</body>
+</html>
