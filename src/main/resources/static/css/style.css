@@ -1,0 +1,11 @@
+.correct {
+    background-color: #11e711;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+.selected {
+    background-color: gray;
+}

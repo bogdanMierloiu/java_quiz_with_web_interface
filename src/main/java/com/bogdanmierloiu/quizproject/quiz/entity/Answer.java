@@ -20,7 +20,9 @@ public class Answer {
 
     private String text;
 
-    private Boolean isCorrect;
+    public Boolean isCorrect;
+
+    public Boolean isSelectedByUser = false;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude

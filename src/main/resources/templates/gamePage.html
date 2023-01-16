@@ -5,7 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-
+<div>
+    <h3 style="font-family: 'Times New Roman',sans-serif">
+        Aveti mai jos un set de 18 intrebari.
+        Fiecare intrebare este punctata cu 0.5p .
+        Notarea incepe de la 1.
+        Nota maxima este 10.
+    </h3>
+    <h4>
+        Succes
+    </h4>
+</div>
 <div>
     <form th:object="${gameRequest}" th:action="@{/game/play}" method="post">
         <input type="hidden" name="playerId" th:value="${player.id}">

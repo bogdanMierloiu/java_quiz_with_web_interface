@@ -3,11 +3,39 @@
 <head>
     <title>Quiz application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 
-<div class="container text-center">
-    <span th:text="${score}"></span>
+<div>
+    <h3 th:text="${'Your score is: ' + score}"></h3>
+    <div style="padding-bottom: 10px">
+        <form th:action="@{/play-again}">
+            <input type="hidden" name="id" th:value="${currentGame.player.getId()}">
+            <button type="submit"> Play again</button>
+        </form>
+    </div>
+</div>
+<div th:each="question: ${currentGame.questions}">
+    <span th:text="${question.text}"></span>
+    <ul th:each="answer: ${question.answers}">
+        <li style="display: inline-block;">
+            <span th:switch="${answer.isSelectedByUser}">
+        <span th:case="true" class="selected" th:text="${answer.text}"></span>
+        <span th:case="false" th:text="${answer.text}"></span>
+    </span>
+        </li>
+    </ul>
+
+
+    <!--    <ul th:each="answer: ${question.answers}">-->
+<!--        <li style="display: inline-block;">-->
+<!--            <span th:switch="${answer.isCorrect}">-->
+<!--        <span th:case="true" class="correct" th:text="${answer.text}"></span>-->
+<!--        <span th:case="false and ${answer.isSelectedByUser == true}" class="selected" th:text="${answer.text}"></span>-->
+<!--    </span>-->
+<!--        </li>-->
+<!--    </ul>-->
 </div>
 
 

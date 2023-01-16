@@ -1,6 +1,7 @@
 package com.bogdanmierloiu.quizproject.quiz.service;
 
 import com.bogdanmierloiu.quizproject.quiz.dto.AnswerRequest;
+import com.bogdanmierloiu.quizproject.quiz.dto.UpdateAnswerText;
 import com.bogdanmierloiu.quizproject.quiz.entity.Answer;
 import com.bogdanmierloiu.quizproject.quiz.entity.Player;
 import com.bogdanmierloiu.quizproject.quiz.repository.AnswerRepository;
@@ -23,6 +24,10 @@ public class AnswerService {
         answer.setIsCorrect(answerRequest.getIsCorrect());
         answer.setQuestion(questionRepository.findById(answerRequest.getQuestionId()).orElseThrow());
         return answerRepository.save(answer);
+    }
 
+    public void updateText(UpdateAnswerText request) {
+        Answer answer = answerRepository.findById(request.getId()).orElseThrow();
+        answer.setText(request.getText());
     }
 }
